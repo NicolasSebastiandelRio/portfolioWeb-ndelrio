@@ -239,7 +239,7 @@ export default function Portfolio() {
       <Section id="languages" title={t.languages.title}>
         <div className="grid gap-6 sm:grid-cols-2">
           {t.languages.items.map((l) => (
-            <Card key={l.name} className="shadow-card p-6">
+            <Card key={l.name} className="shadow-card transition-smooth p-6 hover:-translate-y-1 hover:shadow-elegant">
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-primary rounded-lg p-2 text-primary-foreground">
                   <LanguagesIcon className="h-5 w-5" />
