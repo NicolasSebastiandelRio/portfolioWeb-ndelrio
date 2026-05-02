@@ -25,6 +25,17 @@ export const translations = {
       title: "Experiencia Profesional",
       jobs: [
         {
+          company: "Entropy",
+          role: "Co-Founder & Product Manager",
+          date: "Mar 2026 — Presente",
+          bullets: [
+            "Gestión estratégica de stakeholders como único punto de contacto comercial, garantizando la viabilidad de los proyectos y protegiendo la productividad del equipo técnico mediante el control del alcance (scope management) y la gestión de expectativas.",
+            "Traducción de requerimientos de clientes en historias de usuario, liderando la definición del producto y la priorización continua del backlog técnico para asegurar la alineación con los objetivos de negocio.",
+            "Definición de roadmaps y planificación de proyectos, estableciendo hitos de entrega (milestones) y supervisando la ejecución ágil dentro de cada sprint para garantizar el cumplimiento de los tiempos.",
+            "Elaboración de documentación estratégica, incluyendo especificaciones de requerimientos, propuestas de servicios, manuales de usuario y reportes de estado para mantener alineados a todos los actores involucrados.",
+          ],
+        },
+        {
           company: "Adecco",
           role: "Continuous Improvement Intern",
           date: "Mar 2025 — Presente",
@@ -118,6 +129,17 @@ export const translations = {
     experience: {
       title: "Professional Experience",
       jobs: [
+        {
+          company: "Entropy",
+          role: "Co-Founder & Product Manager",
+          date: "Mar 2026 — Present",
+          bullets: [
+            "Strategic stakeholder management as the sole commercial point of contact, ensuring project viability and protecting the technical team's productivity through scope management and expectation setting.",
+            "Translation of client requirements into user stories, leading product definition and continuous prioritization of the technical backlog to ensure alignment with business goals.",
+            "Definition of roadmaps and project planning, setting delivery milestones and supervising agile execution within each sprint to guarantee on-time delivery.",
+            "Drafting of strategic documentation including requirement specifications, service proposals, user manuals and status reports to keep all stakeholders aligned.",
+          ],
+        },
         {
           company: "Adecco",
           role: "Continuous Improvement Intern",

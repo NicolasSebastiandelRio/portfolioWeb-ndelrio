@@ -149,8 +149,8 @@ export default function Portfolio() {
       {/* Experience */}
       <Section id="experience" title={t.experience.title} muted>
         <div className="grid gap-6 md:grid-cols-2">
-          {t.experience.jobs.map((job) => (
-            <Card key={job.company} className="shadow-card transition-smooth group p-6 hover:-translate-y-1 hover:shadow-elegant">
+          {t.experience.jobs.map((job, idx) => (
+            <Card key={job.company} className={`shadow-card transition-smooth group p-6 hover:-translate-y-1 hover:shadow-elegant ${idx === 0 ? "md:col-span-2" : ""}`}>
               <div className="mb-3 flex items-start justify-between">
                 <div className="bg-gradient-primary rounded-lg p-2 text-primary-foreground">
                   <Briefcase className="h-5 w-5" />
