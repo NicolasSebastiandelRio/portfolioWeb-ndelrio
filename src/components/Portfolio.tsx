@@ -109,12 +109,12 @@ export default function Portfolio() {
                 </a>
               </Button>
             </div>
-            <div className="mt-6 flex justify-center gap-4 md:justify-start">
-              <a href="https://www.linkedin.com/in/nicolás-del-rio-08810523b" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:text-primary" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
+            <div className="mt-6 flex justify-center gap-6 md:justify-start">
+              <a href="https://www.linkedin.com/in/nicolás-del-rio-08810523b" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:scale-110 hover:text-primary" aria-label="LinkedIn">
+                <Linkedin className="h-6 w-6" />
               </a>
-              <a href="https://github.com/NicolasSebastiandelRio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:text-primary" aria-label="GitHub">
-                <Github className="h-5 w-5" />
+              <a href="https://github.com/NicolasSebastiandelRio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:scale-110 hover:text-primary" aria-label="GitHub">
+                <Github className="h-6 w-6" />
               </a>
             </div>
           </div>
