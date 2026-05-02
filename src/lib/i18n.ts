@@ -11,13 +11,13 @@ export const translations = {
     about: {
       title: "Sobre Mí",
       paragraphs: [
-        "Soy estudiante de Ingeniería en Informática y Analista de Mejora Continua, con una visión que combina el desarrollo de software con la optimización de procesos corporativos. Me enfoco en construir soluciones que generen impacto medible: desde sistemas y aplicaciones hasta flujos automatizados que reducen tiempos operativos.",
-        "Trabajo con metodologías ágiles (Scrum, Kanban), herramientas de IA generativa y plataformas de automatización como n8n y Power Automate. Disfruto resolver problemas complejos, documentar con claridad y entregar resultados que escalen con el negocio.",
-        "Actualmente curso 4° año en la Universidad del Salvador y me desempeño como Continuous Improvement Intern en Adecco, donde diseño automatizaciones e indicadores que mejoran la eficiencia operativa del equipo.",
+        "Soy estudiante de Ingeniería en Informática y Analista de Mejora Continua, apasionado por la gestión de proyectos como puente entre la tecnología y los objetivos del negocio. Aplico marcos como Scrum, Kanban, Waterfall y RUP para planificar entregas, gestionar riesgos y alinear stakeholders alrededor de resultados medibles.",
+        "Cuento con el Google Project Management Professional Certificate y estoy próximo a certificarme como Professional Scrum Master I (PSM I). Mi experiencia combina liderazgo de iniciativas, definición de KPIs y coordinación con equipos multidisciplinarios usando JIRA, Asana y Trello.",
+        "Actualmente curso 4° año en la Universidad del Salvador y me desempeño como Continuous Improvement Intern en Adecco, donde gestiono proyectos de automatización con n8n y Power Automate, y construyo dashboards en Power BI que potencian la toma de decisiones del equipo.",
       ],
       stats: [
         { value: "4°", label: "Año de carrera" },
-        { value: "3+", label: "Años de experiencia técnica" },
+        { value: "2+", label: "Años de experiencia técnica" },
         { value: "10+", label: "Tecnologías dominadas" },
       ],
     },
