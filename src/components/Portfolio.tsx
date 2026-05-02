@@ -334,9 +334,11 @@ function Section({ id, title, children, muted }: { id: string; title: string; ch
   return (
     <section id={id} className={muted ? "bg-muted/30 py-16 md:py-24" : "py-16 md:py-24"}>
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="group mb-10 inline-block text-3xl font-bold tracking-tight md:text-4xl">
-          {title}
-          <span className="bg-gradient-primary mt-2 block h-1 w-16 rounded-full transition-all duration-700 ease-in-out group-hover:animate-underline-sweep" />
+        <h2 className="group mb-10 inline-block cursor-default text-3xl font-bold tracking-tight md:text-4xl">
+          <span className="relative inline-block pb-3">
+            {title}
+            <span className="bg-gradient-primary absolute bottom-0 left-0 h-1 w-16 rounded-full group-hover:animate-underline-sweep" />
+          </span>
         </h2>
         {children}
       </div>
