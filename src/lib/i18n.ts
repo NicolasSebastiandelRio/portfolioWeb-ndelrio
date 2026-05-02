@@ -105,13 +105,13 @@ export const translations = {
     about: {
       title: "About Me",
       paragraphs: [
-        "I'm a Software Engineering student and Continuous Improvement Analyst, blending software development with corporate process optimization. I focus on building solutions that deliver measurable impact: from systems and applications to automated workflows that cut operational time.",
-        "I work with agile methodologies (Scrum, Kanban), generative AI tools and automation platforms like n8n and Power Automate. I enjoy solving complex problems, documenting clearly and shipping results that scale with the business.",
-        "I'm currently in my 4th year at Universidad del Salvador and work as a Continuous Improvement Intern at Adecco, where I design automations and indicators that boost the team's operational efficiency.",
+        "I'm a Software Engineering student and Continuous Improvement Analyst, passionate about project management as the bridge between technology and business goals. I apply frameworks like Scrum, Kanban, Waterfall and RUP to plan deliveries, manage risks and align stakeholders around measurable outcomes.",
+        "I hold the Google Project Management Professional Certificate and I'm close to certifying as Professional Scrum Master I (PSM I). My experience combines initiative leadership, KPI definition and coordination of cross-functional teams using JIRA, Asana and Trello.",
+        "I'm currently in my 4th year at Universidad del Salvador and work as a Continuous Improvement Intern at Adecco, where I lead automation projects with n8n and Power Automate, and build Power BI dashboards that drive better team decision-making.",
       ],
       stats: [
         { value: "4th", label: "Year of degree" },
-        { value: "3+", label: "Years of technical experience" },
+        { value: "2+", label: "Years of technical experience" },
         { value: "10+", label: "Technologies mastered" },
       ],
     },
