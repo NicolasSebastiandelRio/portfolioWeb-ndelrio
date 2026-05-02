@@ -129,7 +129,7 @@ export default function Portfolio() {
       <Section id="about" title={t.about.title}>
         <div className="grid items-center gap-10 md:grid-cols-5">
           <div className="shadow-card overflow-hidden rounded-2xl md:col-span-2">
-            <img src="./assets/about-pic.jpeg" alt={t.about.title} loading="lazy" className="h-full w-full object-cover" />
+            <img src="./assets/about-pic.jpeg" alt="" loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div className="space-y-5 md:col-span-3">
             {t.about.paragraphs.map((p, i) => (
