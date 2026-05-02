@@ -189,7 +189,7 @@ export default function Portfolio() {
               </Card>
             ))}
           </div>
-          <Card className="shadow-card p-6">
+          <Card className="shadow-card transition-smooth p-6 hover:-translate-y-1 hover:shadow-elegant">
             <div className="mb-4 flex items-center gap-2">
               <Award className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">{t.education.certsTitle}</h3>
