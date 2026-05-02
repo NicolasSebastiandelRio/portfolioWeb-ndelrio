@@ -177,7 +177,7 @@ export default function Portfolio() {
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-4">
             {t.education.items.map((it) => (
-              <Card key={it.title} className="shadow-card p-5">
+              <Card key={it.title} className="shadow-card transition-smooth p-5 hover:-translate-y-1 hover:shadow-elegant">
                 <div className="flex gap-4">
                   <GraduationCap className="h-6 w-6 flex-shrink-0 text-primary" />
                   <div>
