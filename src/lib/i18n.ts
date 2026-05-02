@@ -158,10 +158,11 @@ export const translations = {
       title: "Technical Skills",
       groups: [
         { key: "code", title: "Programming Languages & Paradigms", items: ["C", "C++", "C#", "Python", "Java", "JavaScript", "HTML", "CSS", "ASP.NET", "LINQ", "React Native", "OOP", "Layered Programming"] },
-        { key: "pm", title: "Project Management & Methodologies", items: ["Agile (Scrum & Kanban)", "Waterfall", "RUP", "Risk Management", "Stakeholder Management", "JIRA", "Asana", "Trello"] },
-        { key: "db", title: "Databases & Cloud Services", items: ["SQL Server (DML & DDL)", "Firebase", "MariaDB"] },
+        { key: "pm", title: "Project Management & Methodologies", items: ["Agile (Scrum & Kanban)", "Waterfall", "RUP", "Extreme Programming (XP)", "Risk Management", "Stakeholder Management", "JIRA", "Asana", "Trello"] },
+        { key: "db", title: "Databases & Cloud Services", items: ["SQL Server (DML & DDL)", "Firebase", "Supabase", "MariaDB"] },
         { key: "ai", title: "Artificial Intelligence & Emerging Tech", items: ["Large Language Models (LLMs)", "Prompt Design", "Generative AI"] },
         { key: "auto", title: "Algorithm Automation", items: ["n8n", "Microsoft Power Automate"] },
+        { key: "ms", title: "Microsoft 365 & Business Intelligence", items: ["Power BI", "Power Query", "Advanced Excel", "SharePoint", "Microsoft Teams", "OneDrive"] },
       ],
     },
     languages: {
