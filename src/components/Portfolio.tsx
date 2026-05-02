@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   Moon, Sun, Download, Github, Linkedin, Mail, Phone, ExternalLink,
   GraduationCap, Briefcase, Award, Languages as LanguagesIcon,
-  Code2, KanbanSquare, Database, BrainCircuit, Workflow,
+  Code2, KanbanSquare, Database, BrainCircuit, Workflow, BarChart3,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -20,6 +20,7 @@ const skillIcons = {
   db: Database,
   ai: BrainCircuit,
   auto: Workflow,
+  ms: BarChart3,
 } as const;
 
 export default function Portfolio() {
@@ -108,12 +109,12 @@ export default function Portfolio() {
                 </a>
               </Button>
             </div>
-            <div className="mt-6 flex justify-center gap-4 md:justify-start">
-              <a href="https://www.linkedin.com/in/nicolás-del-rio-08810523b" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:text-primary" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
+            <div className="mt-6 flex justify-center gap-6 md:justify-start">
+              <a href="https://www.linkedin.com/in/nicolás-del-rio-08810523b" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:scale-110 hover:text-primary" aria-label="LinkedIn">
+                <Linkedin className="h-6 w-6" />
               </a>
-              <a href="https://github.com/NicolasSebastiandelRio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:text-primary" aria-label="GitHub">
-                <Github className="h-5 w-5" />
+              <a href="https://github.com/NicolasSebastiandelRio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:scale-110 hover:text-primary" aria-label="GitHub">
+                <Github className="h-6 w-6" />
               </a>
             </div>
           </div>
@@ -127,22 +128,20 @@ export default function Portfolio() {
 
       {/* About */}
       <Section id="about" title={t.about.title}>
-        <div className="grid items-center gap-10 md:grid-cols-5">
-          <div className="shadow-card overflow-hidden rounded-2xl md:col-span-2">
-            <img src="./assets/about-pic.jpeg" alt="" loading="lazy" className="h-full w-full object-cover" />
-          </div>
-          <div className="space-y-5 md:col-span-3">
-            {t.about.paragraphs.map((p, i) => (
-              <p key={i} className="text-base leading-relaxed text-muted-foreground md:text-lg">{p}</p>
+        <div className="mx-auto max-w-4xl space-y-5">
+          {t.about.paragraphs.map((p, i) => (
+            <p key={i} className="text-base leading-relaxed text-muted-foreground md:text-lg">{p}</p>
+          ))}
+          <div className="grid grid-cols-3 gap-4 pt-4">
+            {t.about.stats.map((s) => (
+              <div
+                key={s.label}
+                className="transition-smooth rounded-xl border border-border/60 bg-card/50 p-4 text-center hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant"
+              >
+                <p className="bg-gradient-primary bg-clip-text text-2xl font-bold text-transparent md:text-3xl">{s.value}</p>
+                <p className="mt-1 text-xs leading-tight text-muted-foreground">{s.label}</p>
+              </div>
             ))}
-            <div className="grid grid-cols-3 gap-4 pt-2">
-              {t.about.stats.map((s) => (
-                <div key={s.label} className="rounded-xl border border-border/60 bg-card/50 p-4 text-center">
-                  <p className="bg-gradient-primary bg-clip-text text-2xl font-bold text-transparent md:text-3xl">{s.value}</p>
-                  <p className="mt-1 text-xs leading-tight text-muted-foreground">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </Section>
@@ -335,9 +334,11 @@ function Section({ id, title, children, muted }: { id: string; title: string; ch
   return (
     <section id={id} className={muted ? "bg-muted/30 py-16 md:py-24" : "py-16 md:py-24"}>
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="mb-10 text-3xl font-bold tracking-tight md:text-4xl">
-          {title}
-          <span className="bg-gradient-primary mt-2 block h-1 w-16 rounded-full" />
+        <h2 className="group mb-10 inline-block cursor-default text-3xl font-bold tracking-tight md:text-4xl">
+          <span className="relative inline-block pb-3">
+            {title}
+            <span className="bg-gradient-primary absolute bottom-0 left-0 h-1 w-16 rounded-full group-hover:animate-underline-sweep" />
+          </span>
         </h2>
         {children}
       </div>
