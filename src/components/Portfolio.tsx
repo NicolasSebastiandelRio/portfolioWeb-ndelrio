@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { Moon, Sun, Languages, Download, Github, Linkedin, Mail, Phone, ExternalLink, GraduationCap, Briefcase, Code2, Sparkles } from "lucide-react";
+import {
+  Moon, Sun, Download, Github, Linkedin, Mail, Phone, ExternalLink,
+  GraduationCap, Briefcase, Award, Languages as LanguagesIcon,
+  Code2, KanbanSquare, Database, BrainCircuit, Workflow,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +13,14 @@ const cvLinks: Record<Lang, string> = {
   es: "./assets/CV Nicolás del Rio.pdf",
   en: "./assets/Resume Nicolás del Rio.pdf",
 };
+
+const skillIcons = {
+  code: Code2,
+  pm: KanbanSquare,
+  db: Database,
+  ai: BrainCircuit,
+  auto: Workflow,
+} as const;
 
 export default function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -39,6 +51,7 @@ export default function Portfolio() {
     { id: "experience", label: t.nav.experience },
     { id: "education", label: t.nav.education },
     { id: "skills", label: t.nav.skills },
+    { id: "languages", label: t.nav.languages },
     { id: "projects", label: t.nav.projects },
     { id: "contact", label: t.nav.contact },
   ];
@@ -49,19 +62,24 @@ export default function Portfolio() {
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <a href="#hero" className="text-lg font-bold tracking-tight">
-            <span className="bg-gradient-primary bg-clip-text text-transparent">N</span>del Rio
+            <span className="bg-gradient-primary bg-clip-text text-transparent">Nicolás</span> del Rio
           </a>
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {navItems.map((item) => (
               <a key={item.id} href={`#${item.id}`} className="text-sm text-muted-foreground transition-smooth hover:text-primary">
                 {item.label}
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={() => setLang(lang === "es" ? "en" : "es")} aria-label="Toggle language">
-              <Languages className="h-4 w-4" />
-              <span className="ml-1 text-xs font-semibold">{lang.toUpperCase()}</span>
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLang(lang === "es" ? "en" : "es")}
+              aria-label="Toggle language"
+              className="text-xs font-semibold tracking-wider"
+            >
+              {lang.toUpperCase()}
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Toggle theme">
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -109,11 +127,23 @@ export default function Portfolio() {
 
       {/* About */}
       <Section id="about" title={t.about.title}>
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div className="shadow-card overflow-hidden rounded-2xl">
-            <img src="./assets/about-pic.jpeg" alt="About" loading="lazy" className="h-full w-full object-cover" />
+        <div className="grid items-center gap-10 md:grid-cols-5">
+          <div className="shadow-card overflow-hidden rounded-2xl md:col-span-2">
+            <img src="./assets/about-pic.jpeg" alt={t.about.title} loading="lazy" className="h-full w-full object-cover" />
           </div>
-          <p className="text-base leading-relaxed text-muted-foreground md:text-lg">{t.about.body}</p>
+          <div className="space-y-5 md:col-span-3">
+            {t.about.paragraphs.map((p, i) => (
+              <p key={i} className="text-base leading-relaxed text-muted-foreground md:text-lg">{p}</p>
+            ))}
+            <div className="grid grid-cols-3 gap-4 pt-2">
+              {t.about.stats.map((s) => (
+                <div key={s.label} className="rounded-xl border border-border/60 bg-card/50 p-4 text-center">
+                  <p className="bg-gradient-primary bg-clip-text text-2xl font-bold text-transparent md:text-3xl">{s.value}</p>
+                  <p className="mt-1 text-xs leading-tight text-muted-foreground">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -162,14 +192,17 @@ export default function Portfolio() {
           </div>
           <Card className="shadow-card p-6">
             <div className="mb-4 flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary" />
+              <Award className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">{t.education.certsTitle}</h3>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {t.education.certs.map((c) => (
-                <li key={c} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <span className="bg-gradient-primary h-1.5 w-1.5 rounded-full" />
-                  {c}
+                <li key={c.name} className="flex items-start justify-between gap-3 border-b border-border/40 pb-3 last:border-0 last:pb-0">
+                  <div>
+                    <p className="text-sm font-medium leading-tight">{c.name}</p>
+                    <p className="text-xs text-muted-foreground">{c.issuer}</p>
+                  </div>
+                  <span className="flex-shrink-0 text-xs font-semibold text-primary">{c.year}</span>
                 </li>
               ))}
             </ul>
@@ -179,19 +212,44 @@ export default function Portfolio() {
 
       {/* Skills */}
       <Section id="skills" title={t.skills.title} muted>
+        <div className="grid gap-6 md:grid-cols-2">
+          {t.skills.groups.map((g) => {
+            const Icon = skillIcons[g.key as keyof typeof skillIcons] ?? Code2;
+            return (
+              <Card key={g.title} className="shadow-card p-6">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="bg-gradient-primary rounded-lg p-2 text-primary-foreground">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-semibold">{g.title}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {g.items.map((s) => (
+                    <Badge key={s} variant="secondary" className="transition-smooth hover:bg-primary hover:text-primary-foreground">
+                      {s}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+      </Section>
+
+      {/* Languages */}
+      <Section id="languages" title={t.languages.title}>
         <div className="grid gap-6 sm:grid-cols-2">
-          {t.skills.groups.map((g) => (
-            <Card key={g.title} className="shadow-card p-6">
-              <div className="mb-4 flex items-center gap-2">
-                <Code2 className="h-5 w-5 text-primary" />
-                <h3 className="font-semibold">{g.title}</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {g.items.map((s) => (
-                  <Badge key={s} variant="secondary" className="transition-smooth hover:bg-primary hover:text-primary-foreground">
-                    {s}
-                  </Badge>
-                ))}
+          {t.languages.items.map((l) => (
+            <Card key={l.name} className="shadow-card p-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-gradient-primary rounded-lg p-2 text-primary-foreground">
+                  <LanguagesIcon className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">{l.name}</h3>
+                  <p className="text-sm font-medium text-primary">{l.level}</p>
+                  {l.detail && <p className="mt-1 text-xs text-muted-foreground">{l.detail}</p>}
+                </div>
               </div>
             </Card>
           ))}
@@ -199,7 +257,7 @@ export default function Portfolio() {
       </Section>
 
       {/* Projects */}
-      <Section id="projects" title={t.projects.title}>
+      <Section id="projects" title={t.projects.title} muted>
         <div className="grid gap-6 md:grid-cols-2">
           {t.projects.items.map((p) => (
             <Card key={p.title} className="shadow-card transition-smooth group relative overflow-hidden p-0 hover:shadow-elegant">
@@ -221,10 +279,18 @@ export default function Portfolio() {
             </Card>
           ))}
         </div>
+        <div className="mt-8 text-center">
+          <Button asChild variant="outline" size="lg">
+            <a href="https://github.com/NicolasSebastiandelRio" target="_blank" rel="noopener noreferrer">
+              <Github className="mr-2 h-4 w-4" />
+              {t.projects.githubCta}
+            </a>
+          </Button>
+        </div>
       </Section>
 
       {/* Contact */}
-      <Section id="contact" title={t.contact.title} muted>
+      <Section id="contact" title={t.contact.title}>
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-8 text-muted-foreground">{t.contact.subtitle}</p>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -259,7 +325,7 @@ export default function Portfolio() {
       </Section>
 
       <footer className="border-t border-border/50 py-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} — {t.footer}
+        {t.footer}
       </footer>
     </div>
   );
