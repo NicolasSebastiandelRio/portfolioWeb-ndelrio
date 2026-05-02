@@ -128,22 +128,20 @@ export default function Portfolio() {
 
       {/* About */}
       <Section id="about" title={t.about.title}>
-        <div className="grid items-center gap-10 md:grid-cols-5">
-          <div className="shadow-card overflow-hidden rounded-2xl md:col-span-2">
-            <img src="./assets/about-pic.jpeg" alt="" loading="lazy" className="h-full w-full object-cover" />
-          </div>
-          <div className="space-y-5 md:col-span-3">
-            {t.about.paragraphs.map((p, i) => (
-              <p key={i} className="text-base leading-relaxed text-muted-foreground md:text-lg">{p}</p>
+        <div className="mx-auto max-w-4xl space-y-5">
+          {t.about.paragraphs.map((p, i) => (
+            <p key={i} className="text-base leading-relaxed text-muted-foreground md:text-lg">{p}</p>
+          ))}
+          <div className="grid grid-cols-3 gap-4 pt-4">
+            {t.about.stats.map((s) => (
+              <div
+                key={s.label}
+                className="transition-smooth rounded-xl border border-border/60 bg-card/50 p-4 text-center hover:-translate-y-1 hover:border-primary/50 hover:shadow-elegant"
+              >
+                <p className="bg-gradient-primary bg-clip-text text-2xl font-bold text-transparent md:text-3xl">{s.value}</p>
+                <p className="mt-1 text-xs leading-tight text-muted-foreground">{s.label}</p>
+              </div>
             ))}
-            <div className="grid grid-cols-3 gap-4 pt-2">
-              {t.about.stats.map((s) => (
-                <div key={s.label} className="rounded-xl border border-border/60 bg-card/50 p-4 text-center">
-                  <p className="bg-gradient-primary bg-clip-text text-2xl font-bold text-transparent md:text-3xl">{s.value}</p>
-                  <p className="mt-1 text-xs leading-tight text-muted-foreground">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </Section>
