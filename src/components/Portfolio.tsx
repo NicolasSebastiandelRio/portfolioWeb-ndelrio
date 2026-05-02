@@ -215,7 +215,7 @@ export default function Portfolio() {
           {t.skills.groups.map((g) => {
             const Icon = skillIcons[g.key as keyof typeof skillIcons] ?? Code2;
             return (
-              <Card key={g.title} className="shadow-card p-6">
+              <Card key={g.title} className="shadow-card transition-smooth p-6 hover:-translate-y-1 hover:shadow-elegant">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="bg-gradient-primary rounded-lg p-2 text-primary-foreground">
                     <Icon className="h-5 w-5" />
