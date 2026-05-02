@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   Moon, Sun, Download, Github, Linkedin, Mail, Phone, ExternalLink,
   GraduationCap, Briefcase, Award, Languages as LanguagesIcon,
-  Code2, KanbanSquare, Database, BrainCircuit, Workflow,
+  Code2, KanbanSquare, Database, BrainCircuit, Workflow, BarChart3,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -20,6 +20,7 @@ const skillIcons = {
   db: Database,
   ai: BrainCircuit,
   auto: Workflow,
+  ms: BarChart3,
 } as const;
 
 export default function Portfolio() {
