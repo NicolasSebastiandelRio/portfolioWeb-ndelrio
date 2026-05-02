@@ -25,6 +25,17 @@ export const translations = {
       title: "Experiencia Profesional",
       jobs: [
         {
+          company: "Entropy",
+          role: "Co-Founder & Product Manager",
+          date: "Mar 2026 — Presente",
+          bullets: [
+            "Gestión estratégica de stakeholders como único punto de contacto comercial, garantizando la viabilidad de los proyectos y protegiendo la productividad del equipo técnico mediante el control del alcance (scope management) y la gestión de expectativas.",
+            "Traducción de requerimientos de clientes en historias de usuario, liderando la definición del producto y la priorización continua del backlog técnico para asegurar la alineación con los objetivos de negocio.",
+            "Definición de roadmaps y planificación de proyectos, estableciendo hitos de entrega (milestones) y supervisando la ejecución ágil dentro de cada sprint para garantizar el cumplimiento de los tiempos.",
+            "Elaboración de documentación estratégica, incluyendo especificaciones de requerimientos, propuestas de servicios, manuales de usuario y reportes de estado para mantener alineados a todos los actores involucrados.",
+          ],
+        },
+        {
           company: "Adecco",
           role: "Continuous Improvement Intern",
           date: "Mar 2025 — Presente",
