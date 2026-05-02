@@ -177,7 +177,7 @@ export default function Portfolio() {
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-4">
             {t.education.items.map((it) => (
-              <Card key={it.title} className="shadow-card p-5">
+              <Card key={it.title} className="shadow-card transition-smooth p-5 hover:-translate-y-1 hover:shadow-elegant">
                 <div className="flex gap-4">
                   <GraduationCap className="h-6 w-6 flex-shrink-0 text-primary" />
                   <div>
@@ -189,7 +189,7 @@ export default function Portfolio() {
               </Card>
             ))}
           </div>
-          <Card className="shadow-card p-6">
+          <Card className="shadow-card transition-smooth p-6 hover:-translate-y-1 hover:shadow-elegant">
             <div className="mb-4 flex items-center gap-2">
               <Award className="h-5 w-5 text-primary" />
               <h3 className="font-semibold">{t.education.certsTitle}</h3>
@@ -215,7 +215,7 @@ export default function Portfolio() {
           {t.skills.groups.map((g) => {
             const Icon = skillIcons[g.key as keyof typeof skillIcons] ?? Code2;
             return (
-              <Card key={g.title} className="shadow-card p-6">
+              <Card key={g.title} className="shadow-card transition-smooth p-6 hover:-translate-y-1 hover:shadow-elegant">
                 <div className="mb-4 flex items-center gap-3">
                   <div className="bg-gradient-primary rounded-lg p-2 text-primary-foreground">
                     <Icon className="h-5 w-5" />
@@ -239,7 +239,7 @@ export default function Portfolio() {
       <Section id="languages" title={t.languages.title}>
         <div className="grid gap-6 sm:grid-cols-2">
           {t.languages.items.map((l) => (
-            <Card key={l.name} className="shadow-card p-6">
+            <Card key={l.name} className="shadow-card transition-smooth p-6 hover:-translate-y-1 hover:shadow-elegant">
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-primary rounded-lg p-2 text-primary-foreground">
                   <LanguagesIcon className="h-5 w-5" />
