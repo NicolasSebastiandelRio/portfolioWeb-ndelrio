@@ -8,6 +8,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { translations, type Lang } from "@/lib/i18n";
+import constructingImg from "@/assets/constructing.png";
+import techsellerImg from "@/assets/techseller.jpg";
+
+const projectImages: Record<string, string> = {
+  constructing: constructingImg,
+  techseller: techsellerImg,
+};
 
 const cvLinks: Record<Lang, string> = {
   es: "./assets/CV Nicolás del Rio.pdf",
@@ -268,14 +275,14 @@ export default function Portfolio() {
         <div className="grid gap-6 md:grid-cols-2">
           {t.projects.items.map((p) => (
             <Card key={p.title} className="shadow-card transition-smooth group relative overflow-hidden p-0 hover:shadow-elegant">
-              <div className="aspect-video overflow-hidden">
-                <img src={p.img} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-smooth group-hover:scale-105" />
+              <div className="aspect-video overflow-hidden bg-muted">
+                <img src={projectImages[p.img] ?? p.img} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-smooth group-hover:scale-105" />
               </div>
               <div className="p-5">
                 <h3 className="text-lg font-semibold">{p.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
                 <a
-                  href="https://github.com/NicolasSebastiandelRio"
+                  href={"url" in p && p.url ? p.url : "https://github.com/NicolasSebastiandelRio"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-smooth hover:gap-2"
