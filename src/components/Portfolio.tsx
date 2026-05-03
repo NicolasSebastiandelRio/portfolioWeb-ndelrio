@@ -158,7 +158,15 @@ export default function Portfolio() {
                 <span className="text-xs text-muted-foreground">{job.date}</span>
               </div>
               <h3 className="text-lg font-semibold">{job.role}</h3>
-              <p className="mb-3 text-sm font-medium text-primary">{job.company}</p>
+              <p className="mb-3 text-sm font-medium text-primary">
+                {"url" in job && job.url ? (
+                  <a href={job.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 transition-smooth hover:underline">
+                    {job.company} <ExternalLink className="h-3 w-3" />
+                  </a>
+                ) : (
+                  job.company
+                )}
+              </p>
               <ul className="space-y-1.5 text-sm text-muted-foreground">
                 {job.bullets.map((b, i) => (
                   <li key={i} className="flex gap-2">
