@@ -132,13 +132,14 @@ export const translations = {
       jobs: [
         {
           company: "Entropy",
+          url: "https://www.entropydevs.com",
           role: "Co-Founder & Product Manager",
           date: "Mar 2026 — Present",
           bullets: [
-            "Strategic stakeholder management as the sole commercial point of contact, ensuring project viability and protecting the technical team's productivity through scope management and expectation setting.",
-            "Translation of client requirements into user stories, leading product definition and continuous prioritization of the technical backlog to ensure alignment with business goals.",
-            "Definition of roadmaps and project planning, setting delivery milestones and supervising agile execution within each sprint to guarantee on-time delivery.",
-            "Drafting of strategic documentation including requirement specifications, service proposals, user manuals and status reports to keep all stakeholders aligned.",
+            "Stakeholder management as the sole commercial point of contact, controlling scope and client expectations.",
+            "Translation of requirements into user stories and continuous backlog prioritization aligned with business goals.",
+            "Definition of roadmaps, milestones and agile sprint supervision to ensure on-time delivery.",
+            "Drafting of strategic documentation: requirements, proposals, user manuals and status reports.",
           ],
         },
         {
