@@ -28,9 +28,12 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      # Este hack previene el error 404 en GitHub Pages para apps de React
-      - name: Copy index.html to 404.html
-        run: cp dist/client/index.html dist/client/404.html
+      - name: Inspección de Artefactos (QA & Observabilidad)
+        run: ls -laR dist/ || echo "La carpeta dist no existe"
+
+      # Control de calidad: Desactivamos la copia temporalmente para aislar la causa raíz
+      # - name: Copy index.html to 404.html
+      #   run: cp dist/client/index.html dist/client/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
