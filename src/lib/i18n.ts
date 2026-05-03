@@ -95,8 +95,8 @@ export const translations = {
       viewCode: "Ver en GitHub",
       githubCta: "Ver más en mi GitHub",
       items: [
-        { title: "Automatización de Procesos", desc: "Workflows con n8n y Power Automate para tareas corporativas repetitivas.", img: "./assets/project2.jpg" },
-        { title: "Dashboard Web Full-Stack", desc: "App con React, Next.js y Firebase para gestión en tiempo real.", img: "./assets/project3.jpg" },
+        { title: "ConstructING", desc: "Ecosistema mobile de gestión y auditoría técnica de obras. Reduce la asimetría de información entre el profesional y el propietario mediante evidencia fehaciente y transparencia técnica.", img: "constructing", url: "https://github.com/NicolasSebastiandelRio/ConstructING" },
+        { title: "TechSeller", desc: "Sistema backend robusto en Java para la gestión operativa de un local de venta de computación: inventario, alta de productos y funciones administrativas clave.", img: "techseller", url: "https://github.com/NicolasSebastiandelRio/sistemaTechSellerV.1.0" },
       ],
     },
     contact: {
@@ -201,8 +201,8 @@ export const translations = {
       viewCode: "View on GitHub",
       githubCta: "See more on my GitHub",
       items: [
-        { title: "Process Automation", desc: "Workflows with n8n and Power Automate for repetitive corporate tasks.", img: "./assets/project2.jpg" },
-        { title: "Full-Stack Web Dashboard", desc: "App built with React, Next.js and Firebase for real-time management.", img: "./assets/project3.jpg" },
+        { title: "ConstructING", desc: "Mobile ecosystem for construction site management and technical auditing. Reduces information asymmetry between professional and owner through reliable evidence and technical transparency.", img: "constructing", url: "https://github.com/NicolasSebastiandelRio/ConstructING" },
+        { title: "TechSeller", desc: "Robust Java backend management system for a computer retail shop: inventory handling, product registration and other key administrative functions.", img: "techseller", url: "https://github.com/NicolasSebastiandelRio/sistemaTechSellerV.1.0" },
       ],
     },
     contact: {
