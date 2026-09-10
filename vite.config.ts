@@ -7,7 +7,7 @@ export default defineConfig({
   base: "./",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   server: {
-    host: "::",
+    host: "localhost",
     port: 8080,
   },
 });

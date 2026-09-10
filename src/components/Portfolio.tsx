@@ -3,17 +3,16 @@ import {
   Moon, Sun, Download, Github, Linkedin, Mail, Phone, ExternalLink,
   GraduationCap, Briefcase, Award, Languages as LanguagesIcon,
   Code2, KanbanSquare, Database, BrainCircuit, Workflow, BarChart3,
+  Menu, X, Copy, Check, MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { translations, type Lang } from "@/lib/i18n";
 import constructingImg from "@/assets/constructing.png";
-import techsellerImg from "@/assets/techseller.jpg";
 
 const projectImages: Record<string, string> = {
   constructing: constructingImg,
-  techseller: techsellerImg,
 };
 
 const cvLinks: Record<Lang, string> = {
@@ -33,6 +32,18 @@ const skillIcons = {
 export default function Portfolio() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [lang, setLang] = useState<Lang>("es");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("Nicolassebastiandelrio@gmail.com");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   useEffect(() => {
     const savedTheme = (localStorage.getItem("theme") as "light" | "dark" | null) ?? "dark";
@@ -92,8 +103,27 @@ export default function Portfolio() {
             <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Toggle theme">
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
+            <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
         </div>
+        {menuOpen && (
+          <nav className="absolute inset-x-0 top-full z-50 border-b border-border/40 bg-background/70 px-4 py-3 shadow-elegant backdrop-blur-xl lg:hidden">
+            <div className="mx-auto flex max-w-6xl flex-col gap-1">
+              {navItems.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-md px-2 py-2 text-sm text-muted-foreground transition-smooth hover:bg-muted/60 hover:text-primary"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        )}
       </header>
 
       {/* Hero */}
@@ -215,6 +245,16 @@ export default function Portfolio() {
                   <div>
                     <p className="text-sm font-medium leading-tight">{c.name}</p>
                     <p className="text-xs text-muted-foreground">{c.issuer}</p>
+                    {"url" in c && c.url && (
+                      <a
+                        href={c.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-primary transition-smooth hover:underline"
+                      >
+                        {t.education.verify} <ExternalLink className="h-3 w-3" />
+                      </a>
+                    )}
                   </div>
                   <span className="flex-shrink-0 text-xs font-semibold text-primary">{c.year}</span>
                 </li>
@@ -272,23 +312,63 @@ export default function Portfolio() {
 
       {/* Projects */}
       <Section id="projects" title={t.projects.title} muted>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="mx-auto max-w-3xl">
           {t.projects.items.map((p) => (
             <Card key={p.title} className="shadow-card transition-smooth group relative overflow-hidden p-0 hover:shadow-elegant">
               <div className="aspect-video overflow-hidden bg-muted">
                 <img src={projectImages[p.img] ?? p.img} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-smooth group-hover:scale-105" />
               </div>
-              <div className="p-5">
-                <h3 className="text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                <a
-                  href={"url" in p && p.url ? p.url : "https://github.com/NicolasSebastiandelRio"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-smooth hover:gap-2"
-                >
-                  {t.projects.viewCode} <ExternalLink className="h-3.5 w-3.5" />
-                </a>
+              <div className="p-6 md:p-8">
+                <h3 className="text-center text-xl font-semibold md:text-2xl">{p.title}</h3>
+                <p className="mt-3 text-center text-sm leading-relaxed text-muted-foreground md:text-base">{p.desc}</p>
+                {"features" in p && (
+                  <ul className="mt-5 space-y-1.5 text-left text-sm text-muted-foreground">
+                    {(p.features as readonly string[]).map((f, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {"methodologies" in p && (
+                  <div className="mt-6">
+                    <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">
+                      {t.projects.methodologyTitle}
+                    </h4>
+                    <div className="mt-3 flex flex-wrap justify-center gap-2">
+                      {(p.methodologies as readonly string[]).map((m) => (
+                        <Badge key={m} variant="secondary" className="transition-smooth hover:bg-primary hover:text-primary-foreground">
+                          {m}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {"stack" in p && (
+                  <div className="mt-5">
+                    <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">
+                      {t.projects.stackTitle}
+                    </h4>
+                    <div className="mt-3 flex flex-wrap justify-center gap-2">
+                      {(p.stack as readonly string[]).map((s) => (
+                        <Badge key={s} variant="outline">
+                          {s}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <div className="mt-6 text-center">
+                  <a
+                    href={"url" in p && p.url ? p.url : "https://github.com/NicolasSebastiandelRio"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-smooth hover:gap-2"
+                  >
+                    {t.projects.viewCode} <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </div>
               </div>
             </Card>
           ))}
@@ -308,15 +388,24 @@ export default function Portfolio() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-8 text-muted-foreground">{t.contact.subtitle}</p>
           <div className="grid gap-4 sm:grid-cols-2">
-            <a href="mailto:Nicolassebastiandelrio@gmail.com" className="shadow-card transition-smooth hover:shadow-elegant group flex items-center gap-4 rounded-xl bg-card p-5 hover:-translate-y-1">
+            <div className="shadow-card transition-smooth hover:shadow-elegant group flex items-center gap-4 rounded-xl bg-card p-5 hover:-translate-y-1">
               <div className="bg-gradient-primary rounded-lg p-3 text-primary-foreground">
                 <Mail className="h-5 w-5" />
               </div>
-              <div className="text-left">
+              <div className="min-w-0 flex-1 text-left">
                 <p className="text-xs text-muted-foreground">{t.contact.email}</p>
-                <p className="text-sm font-medium">Nicolassebastiandelrio@gmail.com</p>
+                <a href="mailto:Nicolassebastiandelrio@gmail.com" className="block truncate text-sm font-medium hover:text-primary">
+                  Nicolassebastiandelrio@gmail.com
+                </a>
+                <button
+                  onClick={copyEmail}
+                  className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-primary transition-smooth hover:underline"
+                >
+                  {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                  {copied ? t.contact.copied : t.contact.copy}
+                </button>
               </div>
-            </a>
+            </div>
             <a href="tel:+541161885502" className="shadow-card transition-smooth hover:shadow-elegant group flex items-center gap-4 rounded-xl bg-card p-5 hover:-translate-y-1">
               <div className="bg-gradient-primary rounded-lg p-3 text-primary-foreground">
                 <Phone className="h-5 w-5" />
@@ -326,6 +415,14 @@ export default function Portfolio() {
                 <p className="text-sm font-medium">+54 11 6188 5502</p>
               </div>
             </a>
+          </div>
+          <div className="mt-4 flex justify-center">
+            <Button asChild size="lg" className="bg-gradient-primary shadow-elegant transition-smooth hover:opacity-90">
+              <a href="https://wa.me/541161885502" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                {t.contact.whatsapp}
+              </a>
+            </Button>
           </div>
           <div className="mt-8 flex justify-center gap-4">
             <a href="https://www.linkedin.com/in/nicolás-del-rio-08810523b" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-smooth hover:text-primary">

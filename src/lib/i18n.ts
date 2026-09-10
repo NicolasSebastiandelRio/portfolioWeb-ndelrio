@@ -4,16 +4,16 @@ export const translations = {
   es: {
     nav: { about: "Sobre Mí", experience: "Experiencia", education: "Educación", skills: "Habilidades", languages: "Idiomas", projects: "Proyectos", contact: "Contacto" },
     hero: {
-      subtitle: "Estudiante de Ingeniería en Informática | Mejora Continua & Automatización",
+      subtitle: "Estudiante de Ingeniería en Informática | Desarrollo de Software, Automatización & Análisis de Datos",
       cta1: "Ver Proyectos",
       cta2: "Descargar CV",
     },
     about: {
       title: "Sobre Mí",
       paragraphs: [
-        "Soy estudiante de Ingeniería en Informática y Analista de Mejora Continua, apasionado por la gestión de proyectos como puente entre la tecnología y los objetivos del negocio. Aplico marcos como Scrum, Kanban, Waterfall y RUP para planificar entregas, gestionar riesgos y alinear stakeholders alrededor de resultados medibles.",
-        "Cuento con el Google Project Management Professional Certificate y estoy próximo a certificarme como Professional Scrum Master I (PSM I). Mi experiencia combina liderazgo de iniciativas, definición de KPIs y coordinación con equipos multidisciplinarios usando JIRA, Asana y Trello.",
-        "Actualmente curso 4° año en la Universidad del Salvador y me desempeño como Continuous Improvement Intern en Adecco, donde gestiono proyectos de automatización con n8n y Power Automate, y construyo dashboards en Power BI que potencian la toma de decisiones del equipo.",
+        "Soy estudiante de Ingeniería en Informática apasionado por la gestión de proyectos como puente entre la tecnología y los objetivos del negocio. Me especializo en desarrollo de software, automatización de procesos y análisis de datos para convertir necesidades operativas en soluciones medibles.",
+        "Cuento con el Google Project Management Professional Certificate y soy Professional Scrum Master I (PSM I) certificado por Scrum.org. Aplico marcos como Scrum, Kanban, Waterfall y RUP para planificar entregas, gestionar riesgos y alinear stakeholders, coordinando equipos multidisciplinarios con JIRA, Asana y Trello.",
+        "Actualmente curso 4° año en la Universidad del Salvador y trabajo como freelance en Entropy como Co-Founder & Product Manager, gestionando proyectos de software con clientes. Realicé una pasantía como Continuous Improvement Intern en Adecco (Mar 2025 – Sep 2026), donde trabajé en automatización con n8n y Power Automate, análisis de KPIs y construcción de dashboards en Power BI para la toma de decisiones.",
       ],
       stats: [
         { value: "4°", label: "Año de carrera" },
@@ -39,7 +39,7 @@ export const translations = {
         {
           company: "Adecco",
           role: "Continuous Improvement Intern",
-          date: "Mar 2025 — Presente",
+          date: "Mar 2025 — Sep 2026",
           bullets: [
             "Análisis de KPIs y métricas operativas para identificar oportunidades de mejora.",
             "Diseño de flujos de automatización con Microsoft Power Automate y n8n.",
@@ -65,10 +65,11 @@ export const translations = {
         { title: "Técnico en Computación Personal y Profesional", place: "Instituto Técnico Industrial San Judas Tadeo", detail: "2015 – 2022" },
       ],
       certsTitle: "Certificaciones",
+      verify: "Ver credencial",
       certs: [
-        { name: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", year: "2026" },
-        { name: "Google Project Management: Professional Certificate", issuer: "Google – Coursera", year: "2025" },
-        { name: "Google AI Essentials", issuer: "Google – Coursera", year: "2024" },
+        { name: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", year: "2026", url: "https://www.credly.com/badges/00ec338d-7c4e-4580-843f-783db6fa0c6a/linked_in_profile" },
+        { name: "Google Project Management: Professional Certificate", issuer: "Google – Coursera", year: "2025", url: "https://www.coursera.org/account/accomplishments/specialization/24RKCYGSOFRY" },
+        { name: "Google AI Essentials", issuer: "Google – Coursera", year: "2024", url: "https://www.coursera.org/account/accomplishments/verify/QBRRGRM0K10K" },
         { name: "Certificado de Prácticas Profesionalizantes", issuer: "Instituto Técnico Industrial San Judas Tadeo", year: "2022" },
       ],
     },
@@ -94,9 +95,31 @@ export const translations = {
       title: "Proyectos",
       viewCode: "Ver en GitHub",
       githubCta: "Ver más en mi GitHub",
+      methodologyTitle: "Metodologías y gestión",
+      stackTitle: "Stack proyectado",
       items: [
-        { title: "ConstructING", desc: "Ecosistema mobile de gestión y auditoría técnica de obras. Reduce la asimetría de información entre el profesional y el propietario mediante evidencia fehaciente y transparencia técnica.", img: "constructing", url: "https://github.com/NicolasSebastiandelRio/ConstructING" },
-        { title: "TechSeller", desc: "Sistema backend robusto en Java para la gestión operativa de un local de venta de computación: inventario, alta de productos y funciones administrativas clave.", img: "techseller", url: "https://github.com/NicolasSebastiandelRio/sistemaTechSellerV.1.0" },
+        {
+          title: "ConstructING",
+          desc: "Ecosistema mobile Offline-First de gestión y auditoría técnica de obras. Reduce la asimetría de información entre el profesional y el propietario mediante evidencia fehaciente y transparencia técnica: registro inalterable del ciclo de vida de la obra en lugar de seguimiento informal por WhatsApp o minutas en papel.",
+          img: "constructing",
+          url: "https://github.com/NicolasSebastiandelRio/ConstructING",
+          features: [
+            "Certificación de hitos con firma digital en pantalla",
+            "Evidencia multimedia georreferenciada con GPS",
+            "Cálculo de Ruta Crítica (CPM) y reajuste automático de entregas",
+            "Operación Offline-First con sincronización inteligente",
+            "Audit log inalterable: quién, cuándo y dónde de cada cambio",
+          ],
+          methodologies: [
+            "Project Charter y objetivos SMART",
+            "SRS bajo estándar IEEE",
+            "Casos de uso y diagramas UML",
+            "Modelo Entidad-Relación (DER)",
+            "Prototipado de alta fidelidad en Figma",
+            "Planificación Gantt por fases Q1–Q2 2026",
+          ],
+          stack: ["Flutter", "NestJS", "PostgreSQL + PostGIS", "Supabase / AWS"],
+        },
       ],
     },
     contact: {
@@ -104,22 +127,25 @@ export const translations = {
       subtitle: "¿Querés trabajar juntos? Escribime.",
       email: "Correo",
       phone: "Teléfono",
+      copy: "Copiar email",
+      copied: "¡Copiado!",
+      whatsapp: "WhatsApp",
     },
     footer: "Copyright © 2026 Nicolás del Río. Todos los derechos reservados.",
   },
   en: {
     nav: { about: "About", experience: "Experience", education: "Education", skills: "Skills", languages: "Languages", projects: "Projects", contact: "Contact" },
     hero: {
-      subtitle: "Software Engineering Student | Continuous Improvement & Automation",
+      subtitle: "Software Engineering Student | Software Development, Automation & Data Analysis",
       cta1: "View Projects",
       cta2: "Download CV",
     },
     about: {
       title: "About Me",
       paragraphs: [
-        "I'm a Software Engineering student and Continuous Improvement Analyst, passionate about project management as the bridge between technology and business goals. I apply frameworks like Scrum, Kanban, Waterfall and RUP to plan deliveries, manage risks and align stakeholders around measurable outcomes.",
-        "I hold the Google Project Management Professional Certificate and I'm close to certifying as Professional Scrum Master I (PSM I). My experience combines initiative leadership, KPI definition and coordination of cross-functional teams using JIRA, Asana and Trello.",
-        "I'm currently in my 4th year at Universidad del Salvador and work as a Continuous Improvement Intern at Adecco, where I lead automation projects with n8n and Power Automate, and build Power BI dashboards that drive better team decision-making.",
+        "I'm a Software Engineering student passionate about project management as the bridge between technology and business goals. I focus on software development, process automation and data analysis to turn operational needs into measurable solutions.",
+        "I hold the Google Project Management Professional Certificate and I'm a certified Professional Scrum Master I (PSM I) by Scrum.org. I apply Scrum, Kanban, Waterfall and RUP to plan deliveries, manage risks and align stakeholders, coordinating cross-functional teams with JIRA, Asana and Trello.",
+        "I'm currently in my 4th year at Universidad del Salvador and work freelance at Entropy as Co-Founder & Product Manager, managing software projects with clients. I did an internship as a Continuous Improvement Intern at Adecco (Mar 2025 – Sep 2026), working on automation with n8n and Power Automate, KPI analysis and Power BI dashboards for decision-making.",
       ],
       stats: [
         { value: "4th", label: "Year of degree" },
@@ -145,7 +171,7 @@ export const translations = {
         {
           company: "Adecco",
           role: "Continuous Improvement Intern",
-          date: "Mar 2025 — Present",
+          date: "Mar 2025 — Sep 2026",
           bullets: [
             "KPI and operational metrics analysis to identify improvement opportunities.",
             "Automation flow design with Microsoft Power Automate and n8n.",
@@ -171,10 +197,11 @@ export const translations = {
         { title: "Personal & Professional Computing Technician", place: "Instituto Técnico Industrial San Judas Tadeo", detail: "2015 – 2022" },
       ],
       certsTitle: "Certifications",
+      verify: "Verify credential",
       certs: [
-        { name: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", year: "2026" },
-        { name: "Google Project Management: Professional Certificate", issuer: "Google – Coursera", year: "2025" },
-        { name: "Google AI Essentials", issuer: "Google – Coursera", year: "2024" },
+        { name: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", year: "2026", url: "https://www.credly.com/badges/00ec338d-7c4e-4580-843f-783db6fa0c6a/linked_in_profile" },
+        { name: "Google Project Management: Professional Certificate", issuer: "Google – Coursera", year: "2025", url: "https://www.coursera.org/account/accomplishments/specialization/24RKCYGSOFRY" },
+        { name: "Google AI Essentials", issuer: "Google – Coursera", year: "2024", url: "https://www.coursera.org/account/accomplishments/verify/QBRRGRM0K10K" },
         { name: "Professional Practices Certificate", issuer: "Instituto Técnico Industrial San Judas Tadeo", year: "2022" },
       ],
     },
@@ -200,9 +227,31 @@ export const translations = {
       title: "Projects",
       viewCode: "View on GitHub",
       githubCta: "See more on my GitHub",
+      methodologyTitle: "Methodologies & management",
+      stackTitle: "Planned stack",
       items: [
-        { title: "ConstructING", desc: "Mobile ecosystem for construction site management and technical auditing. Reduces information asymmetry between professional and owner through reliable evidence and technical transparency.", img: "constructing", url: "https://github.com/NicolasSebastiandelRio/ConstructING" },
-        { title: "TechSeller", desc: "Robust Java backend management system for a computer retail shop: inventory handling, product registration and other key administrative functions.", img: "techseller", url: "https://github.com/NicolasSebastiandelRio/sistemaTechSellerV.1.0" },
+        {
+          title: "ConstructING",
+          desc: "Offline-First mobile ecosystem for construction site management and technical auditing. It reduces information asymmetry between professionals and owners through reliable evidence and technical transparency: an immutable record of the building lifecycle instead of informal tracking via WhatsApp or paper notes.",
+          img: "constructing",
+          url: "https://github.com/NicolasSebastiandelRio/ConstructING",
+          features: [
+            "Milestone certification with on-screen digital signature",
+            "GPS-georeferenced multimedia evidence",
+            "Critical Path Method (CPM) calculation with automatic rescheduling",
+            "Offline-First operation with smart synchronization",
+            "Immutable audit log: who, when and where for every change",
+          ],
+          methodologies: [
+            "Project Charter and SMART objectives",
+            "IEEE-standard SRS",
+            "Use cases and UML diagrams",
+            "Entity-Relationship model (ERD)",
+            "High-fidelity prototyping in Figma",
+            "Gantt planning in Q1–Q2 2026 phases",
+          ],
+          stack: ["Flutter", "NestJS", "PostgreSQL + PostGIS", "Supabase / AWS"],
+        },
       ],
     },
     contact: {
@@ -210,6 +259,9 @@ export const translations = {
       subtitle: "Want to work together? Reach out.",
       email: "Email",
       phone: "Phone",
+      copy: "Copy email",
+      copied: "Copied!",
+      whatsapp: "WhatsApp",
     },
     footer: "Copyright © 2026 Nicolás del Río. All rights reserved.",
   },
